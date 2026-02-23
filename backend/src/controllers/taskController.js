@@ -89,8 +89,7 @@ taskController.assignUserToTask = async (req, res) => {
     });
     res.json(assignment);
   } catch (error) {
-    console.error("Error assigning user to task:", error);
-    res.status(500).json({ error: "Failed to assign user to task" });
+    res.status(500).json({ error: error.message });
   }
 };
 

@@ -1,14 +1,16 @@
 import express from "express";
 import 'dotenv/config'
 import cors from "cors";
-import { prisma } from "./src/Database/db.js";
 
 const app = express();
 //built-in middleware
 app.use(express.json());
 app.use(cors());
 //routers
-
+import authRouter from "./src/routes/authRouter.js";
+import taskRouter from "./src/routes/taskRouter.js";
+app.use("/auth", authRouter);
+app.use("/tasks", taskRouter);
 
 
 
